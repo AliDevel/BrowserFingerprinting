@@ -1,0 +1,483 @@
+@misc{graaljs,
+  title   = {oracle/graaljs: A ECMAScript 2021 compliant JavaScript implementation built on GraalVM. With polyglot language interoperability support. Running Node.js applications!},
+  url     = {https://github.com/oracle/graaljs},
+  journal = {GitHub},
+  author  = {Oracle}
+}
+
+@article{LuDroid-Journal,
+  title    = {A Large Scale Analysis of Android --- Web Hybridization},
+  journal  = {Journal of Systems and Software},
+  volume   = {170},
+  pages    = {110775},
+  year     = {2020},
+  issn     = {0164-1212},
+  doi      = {https://doi.org/10.1016/j.jss.2020.110775},
+  url      = {https://www.sciencedirect.com/science/article/pii/S0164121220301898},
+  author   = {Abhishek Tiwari and Jyoti Prakash and Sascha Gro{\ss} and Christian Hammer},
+  keywords = {Android Hybrid Apps, Static Analysis, Information Flow Control},
+  abstract = {Many Android applications embed webpages via WebView components and execute JavaScript code within Android. Hybrid applications leverage dedicated APIs to load a resource and render it in a WebView. Furthermore, Android objects can be shared with the JavaScript world. However, bridging the interfaces of the Android and JavaScript world might also incur severe security threats: Potentially untrusted webpages and their JavaScript might interfere with the Android environment and its access to native features. No general analysis is currently available to assess the implications of such hybrid apps bridging the two worlds. To understand the semantics and effects of hybrid apps, we perform a large-scale study on the usage of the hybridization APIs in the wild. We analyze and categorize the parameters to hybridization APIs for 7,500 randomly selected and the 196 most popular applications from the Google Playstore as well as 1000 malware samples. Our results advance the general understanding of hybrid applications, as well as implications for potential program analyses, and the current security situation: We discovered thousands of flows of sensitive data from Android to JavaScript, the vast majority of which could flow to potentially untrustworthy code. Our analysis identified numerous web pages embedding vulnerabilities, which we exemplarily exploited. Additionally, we discovered a multitude of applications in which potentially untrusted JavaScript code may interfere with (trusted) Android objects, both in benign and malign applications.}
+}
+
+@inproceedings{CousoutModular2002,
+  author    = {Cousot, Patrick
+               and Cousot, Radhia},
+  editor    = {Horspool, R. Nigel},
+  title     = {Modular Static Program Analysis},
+  booktitle = {Compiler Construction},
+  year      = {2002},
+  publisher = {Springer Berlin Heidelberg},
+  address   = {Berlin, Heidelberg},
+  pages     = {159--179},
+  abstract  = {The purpose of this paper is to present four basic methods for compositional separate modular static analysis of programs by abstract interpretation: - simplification-based separate analysis; - worst-case separate analysis; - separate analysis with (user-provided) interfaces; - symbolic relational separate analysis; as well as a fifth category which is essentially obtained by composition of the above separate local analyses together with global analysis methods.},
+  isbn      = {978-3-540-45937-8}
+}
+
+@inproceedings{LuDroid-Conference,
+  author    = {Abhishek Tiwari and Jyoti Prakash and Sascha Gro{\ss} and Christian Hammer},
+  booktitle = {2019 IEEE 19th International Working Conference on Source Code Analysis and Manipulation (SCAM)},
+  title     = {LUDroid: A Large Scale Analysis of Android---Web Hybridization},
+  year      = {2019},
+  volume    = {},
+  issn      = {},
+  pages     = {256-267},
+  keywords  = {},
+  doi       = {10.1109/SCAM.2019.00036},
+  url       = {https://doi.ieeecomputersociety.org/10.1109/SCAM.2019.00036},
+  publisher = {IEEE Computer Society},
+  address   = {Los Alamitos, CA, USA},
+  month     = {oct}
+}
+
+@inproceedings{Monat-Python-SAS,
+  author    = {Monat, Rapha{\"e}l
+               and Ouadjaout, Abdelraouf
+               and Min{\'e}, Antoine},
+  editor    = {Dr{\u{a}}goi, Cezara
+               and Mukherjee, Suvam
+               and Namjoshi, Kedar},
+  title     = {A Multilanguage Static Analysis of Python Programs with Native C Extensions},
+  booktitle = {Static Analysis},
+  year      = {2021},
+  publisher = {Springer International Publishing},
+  address   = {Cham},
+  pages     = {323--345},
+  abstract  = {Modern programs are increasingly multilanguage, to benefit from each programming language's advantages and to reuse libraries. For example, developers may want to combine high-level Python code with low-level, performance-oriented C code. In fact, one in five of the 200 most downloaded Python libraries available on GitHub contains C code. Static analyzers tend to focus on a single language and may use stubs to model the behavior of foreign function calls. However, stubs are costly to implement and undermine the soundness of analyzers. In this work, we design a static analyzer by abstract interpretation that can handle Python programs calling C extensions. It analyses directly and fully automatically both the Python and the C source codes. It reports runtime errors that may happen in Python, in C, and at the interface. We implemented our analysis in a modular fashion: it reuses off-the-shelf C and Python analyses written in the same analyzer. This approach allows sharing between abstract domains of different languages. Our analyzer can tackle tests of real-world libraries a few thousand lines of C and Python long in a few minutes.},
+  isbn      = {978-3-030-88806-0}
+}
+
+@inproceedings{Ryu-Semantic-Summary,
+  author    = {Lee, Sungho and Lee, Hyogun and Ryu, Sukyoung},
+  title     = {Broadening Horizons of Multilingual Static Analysis: Semantic Summary Extraction from C Code for JNI Program Analysis},
+  year      = {2020},
+  isbn      = {9781450367684},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/3324884.3416558},
+  doi       = {10.1145/3324884.3416558},
+  abstract  = {Most programming languages support foreign language interoperation that allows developers to integrate multiple modules implemented in different languages into a single multilingual program. While utilizing various features from multiple languages expands expressivity, differences in language semantics require developers to understand the semantics of multiple languages and their inter-operation. Because current compilers do not support compile-time checking for interoperation, they do not help developers avoid interoperation bugs. Similarly, active research on static analysis and bug detection has been focusing on programs written in a single language.In this paper, we propose a novel approach to analyze multilingual programs statically. Unlike existing approaches that extend a static analyzer for a host language to support analysis of foreign function calls, our approach extracts semantic summaries from programs written in guest languages using a modular analysis technique, and performs a whole-program analysis with the extracted semantic summaries. To show practicality of our approach, we design and implement a static analyzer for multilingual programs, which analyzes JNI interoperation between Java and C. Our empirical evaluation shows that the analyzer is scalable in that it can construct call graphs for large programs that use JNI interoperation, and useful in that it found 74 genuine interoperation bugs in real-world Android JNI applications.},
+  booktitle = {Proceedings of the 35th IEEE/ACM International Conference on Automated Software Engineering},
+  pages     = {127–137},
+  numpages  = {11},
+  keywords  = {language interoperability, Java native interface, multilingual program analysis},
+  location  = {Virtual Event, Australia},
+  series    = {ASE '20}
+}
+
+@inproceedings{sridharan13efficient,
+  title     = {Efficient Construction of Approximate Call Graphs for {JavaScript IDE} Services},
+  author    = {Asger Feldthaus and Max Sch\"afer and Manu Sridharan and Julian Dolby and Frank Tip},
+  year      = {2013},
+  url       = {files/ICSE-2013-Approximate.pdf},
+  booktitle = {ICSE},
+  abstract  = {The rapid rise of JavaScript as one of the most popular programming languages of the present day has led to a demand for sophisticated IDE support similar to what is available for Java or C#. However, advanced tooling is hampered by the dynamic nature of the language, which makes any form of static analysis very difficult. We single out efficient call graph construction as a key problem to be solved in order to improve development tools for JavaScript. To address this problem, we present a scalable field-based flow analysis for constructing call graphs. Our evaluation on large real-world programs shows that the analysis, while in principle unsound, produces highly accurate call graphs in practice. Previous analyses do not scale to these programs, but our analysis handles them in a matter of seconds, thus proving its suitability for use in an interactive setting.},
+  doi       = {10.1109/ICSE.2013.6606621}
+}
+
+%% TODO: UPDATE THE CITATION FROM ICSE'22 WHEN THE PAPER IS PUBLISHED
+@misc{JuCify2022ICSE,
+  title         = {JuCify: A Step Towards Android Code Unification for Enhanced Static Analysis},
+  author        = {Jordan Samhi and Jun Gao and Nadia Daoudi and Pierre Graux and Henri Hoyez and Xiaoyu Sun and Kevin Allix and Tegawendé F. Bissyandé and Jacques Klein},
+  year          = {2021},
+  eprint        = {2112.10469},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.SE}
+}
+@inproceedings{weiJNSAF-CCS2018,
+  author    = {Wei, Fengguo and Lin, Xingwei and Ou, Xinming and Chen, Ting and Zhang, Xiaosong},
+  title     = {JN-SAF: Precise and Efficient NDK/JNI-Aware Inter-Language Static Analysis Framework for Security Vetting of Android Applications with Native Code},
+  year      = {2018},
+  isbn      = {9781450356930},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/3243734.3243835},
+  doi       = {10.1145/3243734.3243835},
+  abstract  = {Android allows application developers to use native language (C/C++) to implement a part or the complete program. Recent research and our own statistics show that native payloads are commonly used in both benign and malicious apps. Current state-of-the-art Android static analysis tools, such as Amandroid, FlowDroid, DroidSafe, IccTA, and CHEX avoid handling native method invocation and apply conservative models for their data-flow behavior. None of those tools have capability to capture the inter-language dataflow. We propose a new approach to conduct inter-language dataflow analysis for security vetting of Android apps, and build an analysis framework, called JN-SAF to compute flow and context-sensitive inter-language points-to information in an efficient way. We show that: 1) Precise and efficient inter-language dataflow analysis is completely feasible with support of a summary-based bottom-up dataflow analysis (SBDA) algorithm, 2) A comprehensive model of Java Native Interface (JNI) and Native Development Kit (NDK) for binary analysis is essential as none of the existing binary analysis frameworks is able to handle Android binaries, 3) JN-SAF is capable of capturing inter-language security issues in real-world Android apps as demonstrated by our evaluation result.},
+  booktitle = {Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security},
+  pages     = {1137–1150},
+  numpages  = {14},
+  keywords  = {static analysis, mobile security},
+  location  = {Toronto, Canada},
+  series    = {CCS '18}
+}
+
+@inproceedings{tan2011oopsla,
+  author    = {Li, Siliang and Tan, Gang},
+  title     = {JET: Exception Checking in the Java Native Interface},
+  year      = {2011},
+  isbn      = {9781450309400},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/2048066.2048095},
+  doi       = {10.1145/2048066.2048095},
+  abstract  = {Java's type system enforces exception-checking rules that stipulate a checked exception thrown by a method must be declared in the throws clause of the method. Software written in Java often invokes native methods through the use of the Java Native Interface (JNI). Java's type system, however, cannot enforce the same exception-checking rules on Java exceptions raised in native methods. This gap makes Java software potentially buggy and often difficult to debug when an exception is raised in native code. In this paper, we propose a complete static-analysis framework called JET to extend exception-checking rules even on native code. The framework has a two-stage design where the first stage throws away a large portion of irrelevant code so that the second stage, a fine-grained analysis, can concentrate on a small set of code for accurate bug finding. This design achieves both high efficiency and accuracy. We have applied JET on a set of benchmark programs with a total over 227K lines of source code and identified 12 inconsistent native-method exception declarations.},
+  booktitle = {Proceedings of the 2011 ACM International Conference on Object Oriented Programming Systems Languages and Applications},
+  pages     = {345–358},
+  numpages  = {14},
+  keywords  = {static analysis, java native interface, exception checking},
+  location  = {Portland, Oregon, USA},
+  series    = {OOPSLA '11}
+}
+
+@inproceedings{Kondoh2008,
+  author    = {Kondoh, Goh and Onodera, Tamiya},
+  title     = {Finding Bugs in Java Native Interface Programs},
+  year      = {2008},
+  isbn      = {9781605580500},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/1390630.1390645},
+  doi       = {10.1145/1390630.1390645},
+  abstract  = {In this paper, we describe static analysis techniques for finding bugs in programs using the Java Native Interface (JNI). The JNI is both tedious and error-prone because there are many JNI-specific mistakes that are not caught by a native compiler. This paper is focused on four kinds of common mistakes. First, explicit statements to handle a possible exception need to be inserted after a statement calling a Java method. However, such statements tend to be forgotten. We present a typestate analysis to detect this exception-handling mistake. Second, while the native code can allocate resources in a Java VM, those resources must be manually released, unlike Java. Mistakes in resource management cause leaks and other errors. To detect Java resource errors, we used the typestate analysis also used for detecting general memory errors. Third, if a reference to a Java resource lives across multiple native method invocations, it should be converted into a global reference. However, programmers sometimes forget this rule and, for example, store a local reference in a global variable for later uses. We provide a syntax checker that detects this bad coding practice. Fourth, no JNI function should be called in a critical region. If called there, the current thread might block and cause a deadlock. Misinterpreting the end of the critical region, programmers occasionally break this rule. We present a simple typestate analysis to detect an improper JNI function call in a critical region.We have implemented our analysis techniques in a bug-finding tool called BEAM, and executed it on opensource software including JNI code. In the experiment, our analysis techniques found 86 JNI-specific bugs without any overhead and increased the total number of bug reports by 76%.},
+  booktitle = {Proceedings of the 2008 International Symposium on Software Testing and Analysis},
+  pages     = {109–118},
+  numpages  = {10},
+  keywords  = {typestate analysis, java native interface, static analysis},
+  location  = {Seattle, WA, USA},
+  series    = {ISSTA '08}
+}
+
+@inproceedings{tan2009ccs,
+  author    = {Li, Siliang and Tan, Gang},
+  title     = {Finding Bugs in Exceptional Situations of JNI Programs},
+  year      = {2009},
+  isbn      = {9781605588940},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/1653662.1653716},
+  doi       = {10.1145/1653662.1653716},
+  abstract  = {Software flaws in native methods may defeat Java's guarantees of safety and security. One common kind of flaws in native methods results from the discrepancy on how exceptions are handled in Java and in native methods. Unlike exceptions in Java, exceptions raised in the native code through the Java Native Interface (JNI) are not controlled by the Java Virtual Machine (JVM). Only after the native code finishes execution will the JVM's mechanism for exceptions take over. This discrepancy makes handling of JNI exceptions an error prone process and can cause serious security flaws in software written using the JNI.We propose a novel static analysis framework to examine exceptions and report errors in JNI programs. We have built a complete tool consisting of exception analysis, static taint analysis, and warning recovery. Experimental results demonstrated this tool allows finding of mishandling of exceptions with high accuracy (15.4% false-positive rate on over 260k lines of code). Our framework can be easily applied to analyzing software written in other foreign function interfaces, including the Python/C interface and the OCaml/C interface.},
+  booktitle = {Proceedings of the 16th ACM Conference on Computer and Communications Security},
+  pages     = {442–452},
+  numpages  = {11},
+  keywords  = {taint analysis, java native interface, static analysis},
+  location  = {Chicago, Illinois, USA},
+  series    = {CCS '09}
+}
+
+@inproceedings{cordova2016esoss,
+  author    = {Brucker, Achim D.
+               and Herzberg, Michael},
+  editor    = {Caballero, Juan
+               and Bodden, Eric
+               and Athanasopoulos, Elias},
+  title     = {On the Static Analysis of Hybrid Mobile Apps},
+  booktitle = {Engineering Secure Software and Systems},
+  year      = {2016},
+  publisher = {Springer International Publishing},
+  address   = {Cham},
+  pages     = {72--88},
+  abstract  = {Developing mobile applications is a challenging business: developers need to support multiple platforms and, at the same time, need to cope with limited resources, as the revenue generated by an average app is rather small. This results in an increasing use of cross-platform development frameworks that allow developing an app once and offering it on multiple mobile platforms such as Android, iOS, or Windows.},
+  isbn      = {978-3-319-30806-7}
+}
+
+@inbook{adlib2019ryu,
+  author    = {Lee, Sungho and Ryu, Sukyoung},
+  title     = {Adlib: Analyzer for Mobile Ad Platform Libraries},
+  year      = {2019},
+  isbn      = {9781450362245},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/3293882.3330562},
+  abstract  = {Mobile advertising has become a popular advertising approach by taking advantage of various information from mobile devices and rich interaction with users. Mobile advertising platforms show advertisements of nearby restaurants to users using the geographic locations of their mobile devices, and also allow users to make reservations easily using their phone numbers. However, at the same time, they may open the doors for advertisements to steal device information or to perform malicious behaviors. When application developers integrate mobile advertising platform SDKs (AdSDKs) to their applications, they are informed of only the permissions required by the AdSDKs, and they may not be aware of the rich functionalities of the SDKs that are available to advertisements.  In this paper, we first report that various AdSDKs provide powerful functionalities to advertisements, which are seriously vulnerable to security threats. We present representative malicious behaviors by advertisements using APIs provided by AdSDKs. To mitigate the security vulnerability, we develop a static analyzer, Adlib, which analyzes Android Java libraries that use hybrid features to enable communication with JavaScript code and detects possible flows from the APIs that are accessible from third-party advertisements to device-specific features like geographic locations. Our evaluation shows that Adlib found genuine security vulnerabilities from real-world AdSDKs.},
+  booktitle = {Proceedings of the 28th ACM SIGSOFT International Symposium on Software Testing and Analysis},
+  pages     = {262–272},
+  numpages  = {11}
+}
+
+@inproceedings{dilling2011pldi,
+  author    = {Dillig, Isil and Dillig, Thomas and Aiken, Alex and Sagiv, Mooly},
+  title     = {Precise and Compact Modular Procedure Summaries for Heap Manipulating Programs},
+  year      = {2011},
+  isbn      = {9781450306638},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/1993498.1993565},
+  doi       = {10.1145/1993498.1993565},
+  abstract  = {We present a strictly bottom-up, summary-based, and precise heap analysis targeted for program verification that performs strong updates to heap locations at call sites. We first present a theory of heap decompositions that forms the basis of our approach; we then describe a full analysis algorithm that is fully symbolic and efficient. We demonstrate the precision and scalability of our approach for verification of real C and C++ programs.},
+  booktitle = {Proceedings of the 32nd ACM SIGPLAN Conference on Programming Language Design and Implementation},
+  pages     = {567–577},
+  numpages  = {11},
+  keywords  = {pointer analysis, summary-based analysis},
+  location  = {San Jose, California, USA},
+  series    = {PLDI '11}
+}
+
+@inproceedings{rinhard1999pointer,
+  author    = {Whaley, John and Rinard, Martin},
+  title     = {Compositional Pointer and Escape Analysis for Java Programs},
+  year      = {1999},
+  isbn      = {1581132387},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/320384.320400},
+  doi       = {10.1145/320384.320400},
+  abstract  = {This paper presents a combined pointer and escape analysis algorithm for Java programs. The algorithm is based on the abstraction of points-to escape graphs, which characterize how local variables and fields in objects refer to other objects. Each points-to escape graph also contains escape information, which characterizes how objects allocated in one region of the program can escape to be accessed by another region. The algorithm is designed to analyze arbitrary regions of complete or incomplete programs, obtaining complete information for objects that do not escape the analyzed regions.We have developed an implementation that uses the escape information to eliminate synchronization for objects that are accessed by only one thread and to allocate objects on the stack instead of in the heap. Our experimental results are encouraging. We were able to analyze programs tens of thousands of lines long. For our benchmark programs, our algorithms enable the elimination of between 24% and 67% of the synchronization operations. They also enable the stack allocation of between 22% and 95% of the objects.},
+  booktitle = {Proceedings of the 14th ACM SIGPLAN Conference on Object-Oriented Programming, Systems, Languages, and Applications},
+  pages     = {187–206},
+  numpages  = {20},
+  location  = {Denver, Colorado, USA},
+  series    = {OOPSLA '99}
+}
+
+@inproceedings{rival2020shape,
+  author    = {Illous, Hugo
+               and Lemerre, Matthieu
+               and Rival, Xavier},
+  editor    = {Pichardie, David
+               and Sighireanu, Mihaela},
+  title     = {Interprocedural Shape Analysis Using Separation Logic-Based Transformer Summaries},
+  booktitle = {Static Analysis},
+  year      = {2020},
+  publisher = {Springer International Publishing},
+  address   = {Cham},
+  pages     = {248--273},
+  abstract  = {Shape analyses aim at inferring semantic invariants related to the data-structures that programs manipulate. To achieve that, they typically abstract the set of reachable states. By contrast, abstractions for transformation relations between input states and output states not only provide a finer description of program executions but also enable the composition of the effect of program fragments so as to make the analysis modular. However, few logics can efficiently capture such transformation relations. In this paper, we propose to use connectors inspired by separation logic to describe memory state transformations and to represent procedure summaries. Based on this abstraction, we design a top-down interprocedural analysis using shape transformation relations as procedure summaries. Finally, we report on implementation and evaluation.},
+  isbn      = {978-3-030-65474-0}
+}
+
+@inproceedings{hybridDroid,
+  author    = {Lee, Sungho and Dolby, Julian and Ryu, Sukyoung},
+  title     = {HybriDroid: Static Analysis Framework for Android Hybrid Applications},
+  year      = {2016},
+  isbn      = {9781450338455},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/2970276.2970368},
+  doi       = {10.1145/2970276.2970368},
+  abstract  = { Mobile applications (apps) have long invaded the realm of desktop apps, and hybrid apps become a promising solution for supporting multiple mobile platforms. Providing both platform-specific functionalities via native code like native apps and user interactions via JavaScript code like web apps, hybrid apps help developers build multiple apps for different platforms without much duplicated efforts. However, most hybrid apps are developed in multiple programming languages with different semantics, which may be vulnerable to programmer errors. Moreover, because untrusted JavaScript code may access device-specific features via native code, hybrid apps may be vulnerable to various security attacks. Unfortunately, no existing tools can help hybrid app developers by detecting errors or security holes. In this paper, we present HybriDroid, the first static analysis framework for Android hybrid apps. We investigate the semantics of Android hybrid apps especially for the interoperation mechanism of Android Java and JavaScript. Then, we design and implement a static analysis framework that analyzes inter-communication between Android Java and JavaScript. As example analyses supported by HybriDroid, we implement a bug detector that identifies programmer errors due to the hybrid semantics, and a taint analyzer that finds information leaks cross language boundaries. Our empirical evaluation shows that the tools are practically usable in that they found previously uncovered bugs in real-world Android hybrid apps and possible information leaks via a widely-used advertising platform. },
+  booktitle = {Proceedings of the 31st IEEE/ACM International Conference on Automated Software Engineering},
+  pages     = {250–261},
+  numpages  = {12},
+  keywords  = {Android, hybrid applications, static analysis, analysis framework, multi-language analysis},
+  location  = {Singapore, Singapore},
+  series    = {ASE 2016}
+}
+
+@inproceedings{hydridDroidICSE2019,
+  author    = {Bae, Sora and Lee, Sungho and Ryu, Sukyoung},
+  booktitle = {2019 IEEE/ACM 41st International Conference on Software Engineering (ICSE)},
+  title     = {Towards Understanding and Reasoning About Android Interoperations},
+  year      = {2019},
+  volume    = {},
+  number    = {},
+  pages     = {223-233},
+  doi       = {10.1109/ICSE.2019.00038}
+}
+
+@inproceedings{iifa,
+  author    = {Tiwari, Abhishek
+               and Gro{\ss}, Sascha
+               and Hammer, Christian},
+  editor    = {Chen, Songqing
+               and Choo, Kim-Kwang Raymond
+               and Fu, Xinwen
+               and Lou, Wenjing
+               and Mohaisen, Aziz},
+  title     = {IIFA: Modular Inter-app Intent Information Flow Analysis of Android Applications},
+  booktitle = {Security and Privacy in Communication Networks},
+  year      = {2019},
+  publisher = {Springer International Publishing},
+  address   = {Cham},
+  pages     = {335--349},
+  abstract  = {Android apps cooperate through message passing via intents. However, when apps have disparate sets of privileges inter-app communication (IAC) can accidentally or maliciously be misused, e.g., to leak sensitive information contrary to users' expectations. Recent research has considered static program analysis to detect dangerous data leaks due to inter-component communication (ICC), but suffers from shortcomings for IAC with respect to precision, soundness, and scalability.},
+  isbn      = {978-3-030-37231-6}
+}
+
+@inproceedings{schubert2021ecoop,
+  author    = {Schubert, Philipp Dominik and Hermann, Ben and Bodden, Eric},
+  title     = {{Lossless, Persisted Summarization of Static Callgraph, Points-To and Data-Flow Analysis}},
+  booktitle = {35th European Conference on Object-Oriented Programming (ECOOP 2021)},
+  pages     = {2:1--2:31},
+  series    = {Leibniz International Proceedings in Informatics (LIPIcs)},
+  isbn      = {978-3-95977-190-0},
+  issn      = {1868-8969},
+  year      = {2021},
+  volume    = {194},
+  editor    = {M{\o}ller, Anders and Sridharan, Manu},
+  publisher = {Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},
+  address   = {Dagstuhl, Germany},
+  url       = {https://drops.dagstuhl.de/opus/volltexte/2021/14045},
+  urn       = {urn:nbn:de:0030-drops-140453},
+  doi       = {10.4230/LIPIcs.ECOOP.2021.2},
+  annote    = {Keywords: Inter-procedural static analysis, compositional analysis, LLVM, C/C++}
+}
+
+@inproceedings{nielsen2021issta,
+  author    = {Benjamin Barslev Nielsen and Martin Toldam Torp and Anders M\o{}ller},
+  title     = {Modular Call Graph Construction for Security Scanning of {N}ode.js Applications},
+  booktitle = {Proc. 30th International Symposium on Software Testing and Analysis (ISSTA)},
+  year      = {2021},
+  month     = {July}
+}
+
+@inproceedings{buro2020abstractmultlingual,
+  author    = {Buro, Samuele
+               and Crole, Roy L.
+               and Mastroeni, Isabella},
+  editor    = {Pichardie, David
+               and Sighireanu, Mihaela},
+  title     = {On Multi-language Abstraction},
+  booktitle = {Static Analysis},
+  year      = {2020},
+  publisher = {Springer International Publishing},
+  address   = {Cham},
+  pages     = {310--332},
+  abstract  = {Modern software development rarely takes place within a single programming language. Often, programmers appeal to cross-language interoperability. Examples are exploitation of novel features of one language within another, and cross-language code reuse. Previous works developed a theory of so-called multi-languages, which arise by combining existing languages, defining a precise notion of (algebraic) multi-language semantics. As regards static analysis, the heterogeneity of the multi-language context opens up new and unexplored scenarios. In this paper, we provide a general theory for the combination of abstract interpretations of existing languages, regardless of their inherent nature, in order to gain an abstract semantics of multi-language programs. As a part of this general theory, we show that formal properties of interest of multi-language abstractions (e.g., soundness and completeness) boil down to the features of the interoperability mechanism that binds the underlying languages together. We extend many of the standard concepts of abstract interpretation to the framework of multi-languages.},
+  isbn      = {978-3-030-65474-0}
+}
+
+@inproceedings{davidlo2016polyglot,
+  author    = {Kochhar, Pavneet Singh and Wijedasa, Dinusha and Lo, David},
+  booktitle = {2016 IEEE 23rd International Conference on Software Analysis, Evolution, and Reengineering (SANER)},
+  title     = {A Large Scale Study of Multiple Programming Languages and Code Quality},
+  year      = {2016},
+  volume    = {1},
+  number    = {},
+  pages     = {563-573},
+  doi       = {10.1109/SANER.2016.112}
+}
+
+@inproceedings{mlpolyglotstudy,
+  author    = {Grichi, Manel and Eghan, Ellis E. and Adams, Bram},
+  booktitle = {2020 IEEE International Conference on Software Maintenance and Evolution (ICSME)},
+  title     = {On the Impact of Multi-language Development in Machine Learning Frameworks},
+  year      = {2020},
+  volume    = {},
+  number    = {},
+  pages     = {546-556},
+  doi       = {10.1109/ICSME46990.2020.00058}
+}
+
+@inproceedings{polyglotstudy2,
+  author    = {Li, Zengyang and Qi, Xiaoxiao and Yu, Qinyi and Liang, Peng and Mo, Ran and Yang, Chen},
+  booktitle = {2021 IEEE/ACM 29th International Conference on Program Comprehension (ICPC)},
+  title     = {Multi-Programming-Language Commits in OSS: An Empirical Study on Apache Projects},
+  year      = {2021},
+  volume    = {},
+  number    = {},
+  pages     = {219-229},
+  doi       = {10.1109/ICPC52881.2021.00029}
+}
+
+ @misc{stackexchange,
+  title   = {Why are multiple programming languages used in the development of one product or piece of software?},
+  url     = {https://softwareengineering.stackexchange.com/questions/370135/why-are-multiple-programming-languages-used-in-the-development-of-one-product-or/370146#370146},
+  journal = {Software Engineering Stack Exchange},
+  author  = {Stack Exchange},
+  date    = {2022-03-04},
+  year    = {2022},
+  month   = {March}
+} 
+
+@misc{rcpp,
+  title = {Rcpp for Seamless R and C++ Integration},
+  url   = {http://www.rcpp.org},
+  date  = {2022-03-04},
+  year  = {2022}
+} 
+
+@misc{rpy,
+  title = {Rpy2: Python in R},
+  url   = {https://rpy2.github.io/doc/v2.9.x/html/index.html},
+  date  = {2022-03-04},
+  year  = {2022},
+  month = {March}
+}
+
+@inproceedings{gregor2019ecoop,
+  author    = {Alexi Turcotte and Ellen Arteca and Gregor Richards},
+  title     = {{Reasoning About Foreign Function Interfaces Without Modelling the Foreign Language}},
+  booktitle = {33rd European Conference on Object-Oriented Programming (ECOOP 2019)},
+  pages     = {16:1--16:32},
+  series    = {Leibniz International Proceedings in Informatics (LIPIcs)},
+  isbn      = {978-3-95977-111-5},
+  issn      = {1868-8969},
+  year      = {2019},
+  volume    = {134},
+  editor    = {Alastair F. Donaldson},
+  publisher = {Schloss Dagstuhl--Leibniz-Zentrum fuer Informatik},
+  address   = {Dagstuhl, Germany},
+  url       = {http://drops.dagstuhl.de/opus/volltexte/2019/10808},
+  urn       = {urn:nbn:de:0030-drops-108087},
+  doi       = {10.4230/LIPIcs.ECOOP.2019.16},
+  annote    = {Keywords: Formal Semantics, Language Interoperation, Lua, C, Foreign Function Interfaces}
+}
+
+@inproceedings{ericbodden-accesspath,
+  author    = {Lerch, Johannes and Sp\"{a}th, Johannes and Bodden, Eric and Mezini, Mira},
+  title     = {Access-Path Abstraction: Scaling Field-Sensitive Data-Flow Analysis with Unbounded Access Paths},
+  year      = {2015},
+  isbn      = {9781509000241},
+  publisher = {IEEE Press},
+  url       = {https://doi.org/10.1109/ASE.2015.9},
+  doi       = {10.1109/ASE.2015.9},
+  abstract  = {Precise data-flow analyses frequently model field accesses through access paths with varying length. While using longer access paths increases precision, their size must be bounded to assure termination, and should anyway be small to enable a scalable analysis.We present Access-Path Abstraction, which for the first time combines efficiency with maximal precision. At control-flow merge points Access-Path Abstraction represents all those access paths that are rooted at the same base variable through this base variable only. The full access paths are reconstructed on demand where required. This makes it unnecessary to bound access paths to a fixed maximal length.Experiments with Stanford SecuriBench and the Java Class Library compare our open-source implementation against a field-based approach and against a field-sensitive approach that uses bounded access paths. The results show that the proposed approach scales as well as a field-based approach, whereas the approach using bounded access paths runs out of memory.},
+  booktitle = {Proceedings of the 30th IEEE/ACM International Conference on Automated Software Engineering},
+  pages     = {619–629},
+  numpages  = {11},
+  location  = {Lincoln, Nebraska},
+  series    = {ASE '15}
+}
+
+@article{khedkar-accessgraphs,
+  author     = {Khedker, Uday P. and Sanyal, Amitabha and Karkare, Amey},
+  title      = {Heap Reference Analysis Using Access Graphs},
+  year       = {2007},
+  issue_date = {November 2007},
+  publisher  = {Association for Computing Machinery},
+  address    = {New York, NY, USA},
+  volume     = {30},
+  number     = {1},
+  issn       = {0164-0925},
+  url        = {https://doi.org/10.1145/1290520.1290521},
+  doi        = {10.1145/1290520.1290521},
+  abstract   = {Despite significant progress in the theory and practice of program analysis, analyzing properties of heap data has not reached the same level of maturity as the analysis of static and stack data. The spatial and temporal structure of stack and static data is well understood while that of heap data seems arbitrary and is unbounded. We devise bounded representations that summarize properties of the heap data. This summarization is based on the structure of the program that manipulates the heap. The resulting summary representations are certain kinds of graphs called access graphs. The boundedness of these representations and the monotonicity of the operations to manipulate them make it possible to compute them through data flow analysis.An important application that benefits from heap reference analysis is garbage collection, where currently liveness is conservatively approximated by reachability from program variables. As a consequence, current garbage collectors leave a lot of garbage uncollected, a fact that has been confirmed by several empirical studies. We propose the first ever end-to-end static analysis to distinguish live objects from reachable objects. We use this information to make dead objects unreachable by modifying the program. This application is interesting because it requires discovering data flow information representing complex semantics. In particular, we formulate the following new analyses for heap data: liveness, availability, and anticipability and propose solution methods for them. Together, they cover various combinations of directions of analysis (i.e., forward and backward) and confluence of information (i.e. union and intersection). Our analysis can also be used for plugging memory leaks in C/C++ languages.},
+  journal    = {ACM Trans. Program. Lang. Syst.},
+  month      = {nov},
+  pages      = {1–es},
+  numpages   = {41},
+  keywords   = {liveness, heap references, Aliasing, data flow analysis}
+}
+
+@Inbook{Sridharan2013,
+author="Sridharan, Manu
+and Chandra, Satish
+and Dolby, Julian
+and Fink, Stephen J.
+and Yahav, Eran",
+editor="Clarke, Dave
+and Noble, James
+and Wrigstad, Tobias",
+title="Alias Analysis for Object-Oriented Programs",
+bookTitle="Aliasing in Object-Oriented Programming. Types, Analysis and Verification",
+year="2013",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="196--232",
+abstract="We present a high-level survey of state-of-the-art alias analyses for object-oriented programs, based on a years-long effort developing industrial-strength static analyses for Java. We first present common variants of points-to analysis, including a discussion of key implementation techniques. We then describe flow-sensitive techniques based on tracking of access paths, which can yield greater precision for certain clients. We also discuss how whole-program alias analysis has become less useful for modern Java programs, due to increasing use of reflection in libraries and frameworks. We have found that for real-world programs, an under-approximate alias analysis based on access-path tracking often provides the best results for a variety of practical clients.",
+isbn="978-3-642-36946-9",
+doi="10.1007/978-3-642-36946-9_8",
+url="https://doi.org/10.1007/978-3-642-36946-9_8"
+}
+
