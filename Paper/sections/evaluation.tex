@@ -70,10 +70,10 @@ From the table we can see using fine-grained information increases user uniquene
 
 Case study 2. Phone model 
 By default all webviews leaks phone model. Security advisors several times pointed out that developers need's to override user agent strings to hide phone model and build number\cite{forum}\cite{nightwatch}\cite{nightwatch1}. But from our research we have found none of applications hide them. We have tested about 20000 applications from androzoo and 15000[~] are hybrid apps. 
-One example is Alibaba website. Alibaba has hybrid application.The privacy vulnerability of website is after login to the account  , account number attached to the cookies. As it stays same always,if user uses Alibaba hybrid applications or other in-app browsers to Login the site, server will now about user changed phone.It has several privacy issus:
-1. How frequently you change your phone?
-2. How is your financial status?(As in some countries mobile phones shows your financial status).
-But if user will use privacy oriented browsers example Mozilla,Tor or Chrome with enabled user-agent reduction this privacy issues will not happen. 
+One example is the Alibaba website. Alibaba has a hybrid app. A website privacy vulnerability is that the account number is attached to cookies after logging into an account. As it stays the same always, if the user uses Alibaba hybrid applications or other in-app browsers to log in to the site, the server will know that the user changed phone. It has privacy issues:\\
+1. How frequently do you change your phone?
+2. What is your financial situation? (As in some countries, mobile phones show your financial situation).
+But if user will use privacy oriented browsers example Brave,Tor,Mozilla or Chrome with enabled user-agent reduction this privacy issues will not happen. 
 
 Case study 3. Build number 
 Build number on mobile is security Vulnerability. There are several researches has done that with the help of build number the phone can be exploited\cite{nightwatch02}.
@@ -90,12 +90,18 @@ In our dataset some hybrid applications uses unique id in their user agents. Whi
    
 An example of this net.giosis.shopping.id package:
 \\
-\Centering
- "Mozilla/5.0 (Linux; Android 11; Android SDK built for x86 Build/RSR1.210210.001.A1; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.106 Mobile Safari/537.36 AndroidGmarket Qoo10 ID\_3.6.2\_133(GMKTV2\_ZlRnG1XAIzgwoC3OBe0hNjV4Pfmya
- C5RAIBqY+mkcipUGsSIiB19AyfIHQY1msEafG/xGz9RIS4=;
+
+               "Mozilla/5.0 (Linux; Android 11; Android SDK built for x86                        Build/RSR1.210210.001.A1; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.106 Mobile Safari/537.36 AndroidGmarket Qoo10 ID\_3.6.2\_133(\\GMKTV2\_ZlRnG1XAIzgwoC3OBe0hNjV4Pfmya
+ C5RAIBqY+mkcipUGsSIiB\\19AyfIHQY1msEafG/xGz9RIS4=;
  Android SDK built for x86;11;en\_US;2000010476)"
-Unique id is added for tracking purposess. We have tested that unique id is connected device itself so after reinstalling this UID stays same. 
+ \\
+ 
+A unique identifier is added for tracking. We have verified that the unique identifier is the connected device itself, so this UID remains unchanged after reinstallation.
+This type of unique identifier can be attached as a user request header, which is an example in the Alibaba hybrid app.
+Users are unaware of this tracking mechanism and have no control over it. 
 
-
-
+Case study. Phone model leakage in social hybrid apps.
+For our example, we chose the Instagram application. In this example, we created a simple web page storing the Instagram accountId, accountSpecificLink, and user-agent of the user.
+ We created a specific url for each Instagram account and submitted it. After the user clicked on the account, we could tell which user was using which phone.
+ 
 
