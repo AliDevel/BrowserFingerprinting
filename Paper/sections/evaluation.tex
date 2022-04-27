@@ -1,5 +1,3 @@
-\usepackage{multirow}
-\usepackage{ragged2e}
 \section{Evaluation}
 In this section we describe the results of our evaluation.
 
@@ -19,7 +17,7 @@ User-agent leaks users phone model and build number of the device. This bug was 
 
                 "{Mozilla/5.0 (Linux; Android 9; SM-A505FN) AppleWebKit/537.36 (KHTML,                like Gecko) Chrome/98.0.4758.87 Mobile Safari/537.36}" \\
 \par
- Since Chrome from version 93 google chrome's privacy sandbox project started providing reduced user agent strings to limit the leakage of sensitive information and protect from passive fingerprinting. We can manually enable it in Chrome by: "{chrome://flags/#reduce-user-agent}"
+ Since Chrome from version 93 google chrome's privacy sandbox project started providing reduced user agent strings to limit the leakage of sensitive information and protect from passive fingerprinting. We can manually enable it in Chrome by: "{chrome://flags/\#reduce-user-agent}"
 After enabling this plugin user-agents will be default in all android devices:\\
 
        "{Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like  Gecko) Chrome/93.0.0.0 Mobile Safari/537.36}" \\

@@ -1,48 +1,54 @@
-This is BibTeX, Version 0.99d (TeX Live 2019)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paper.aux
 The style file: splncs04.bst
-I found no \citation commands---while reading file paper.aux
 Database file #1: RelatedWork.bib
-You've used 0 entries,
+Warning--to sort, need author or key in nightwatch
+Warning--to sort, need author or key in forum
+Warning--to sort, need author or key in nightwatch1
+Warning--to sort, need author or key in useragentred
+Warning--to sort, need author or key in rfc
+Warning--to sort, need author or key in tracks
+Warning--to sort, need author or key in nightwatch02
+You've used 9 entries,
             2850 wiz_defined-function locations,
-            594 strings with 4483 characters,
-and the built_in function-call counts, 24 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 7
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+            636 strings with 5851 characters,
+and the built_in function-call counts, 3274 in all, are:
+= -- 270
+> -- 46
+< -- 2
++ -- 23
+- -- 14
+* -- 166
+:= -- 351
+add.period$ -- 13
+call.type$ -- 9
+change.case$ -- 38
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 16
+duplicate$ -- 303
+empty$ -- 398
+format.name$ -- 16
+if$ -- 770
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 6
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 9
+missing$ -- 49
+newline$ -- 33
+num.names$ -- 4
+pop$ -- 149
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 25
 quote$ -- 0
-skip$ -- 1
+skip$ -- 109
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 173
+swap$ -- 130
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 5
-(There was 1 error message)
+type$ -- 36
+warning$ -- 7
+while$ -- 19
+width$ -- 10
+write$ -- 83
+(There were 7 warnings)

@@ -1,6 +1,47 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 \providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{tracks}
+Coveryourtracks. \url{https://coveryourtracks.eff.org/} (2014)
+
+\bibitem{nightwatch02}
+Targeting and exploiting android devices via hostile networks.
+  \url{https://wwwsnightwatchcybersecuritycom.files.wordpress.com/2016/11/bsides-philly-2016.pdf}
+  (2014)
+
+\bibitem{rfc}
+User-agent. \url{https://datatracker.ietf.org/doc/html/rfc7231\#section-5.5.3}
+  (2014)
+
+\bibitem{nightwatch}
+Research: Chrome for android reveals phone model and build.
+  \url{https://wwws.nightwatchcybersecurity.com/2015/09/30/research-chrome-for-android-reveals-phone-model-and-build/}
+  (2015)
+
+\bibitem{forum}
+Webview privacy issue.
+  \url{https://bugs.chromium.org/p/chromium/issues/detail?id=494452} (2015)
+
+\bibitem{nightwatch1}
+Research: Chrome for android reveals phone model and build.
+  \url{https://wwws.nightwatchcybersecurity.com/2018/12/25/chrome-browser-for-android-reveals-hardware-information/}
+  (2018)
+
+\bibitem{useragentred}
+User-agent reduction.
+  \url{https://developer.chrome.com/docs/privacy-sandbox/user-agent/} (2021)
+
+\bibitem{allix2016androzoo}
+Allix, K., Bissyand{\'e}, T.F., Klein, J., Le~Traon, Y.: Androzoo: Collecting
+  millions of android apps for the research community. In: 2016 IEEE/ACM 13th
+  Working Conference on Mining Software Repositories (MSR). pp. 468--471. IEEE
+  (2016)
+
+\bibitem{rizzo2018babelview}
+Rizzo, C., Cavallaro, L., Kinder, J.: Babelview: Evaluating the impact of code
+  injection attacks in mobile webviews. In: International Symposium on Research
+  in Attacks, Intrusions, and Defenses. pp. 25--46. Springer (2018)
 
 \end{thebibliography}
