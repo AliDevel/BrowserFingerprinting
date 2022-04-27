@@ -1,2 +1,103 @@
+\usepackage{multirow}
+\usepackage{ragged2e}
 \section{Evaluation}
+In this section we describe the results of our evaluation.
+
+\subsection{Data collection.}
+In our dataset we have 5 most popular hybrid apps from google play store and 20000 applications from AndroZoo dataset\cite{allix2016androzoo}. To download hybrid applications from AndrooZoo we reffered to hash of applications from dataset of Babelview  research\cite{rizzo2018babelview}.\\
+Data collection was conducted on Acer Aspire E1-572G with a proccessor Intel Core i7-4500U . We evaluated 20000 applications from AndroZoo.The evaluated data set contains user-agents, headers and urls.
+
+\par
+\subsubsection{Case Study 1.Chromium Webview user-agent leakage.}\par
+
+ Using the webview inside the applications makes usage of website links easier as the user will not leave the application. So nowadays most of applications uses  Webview. However using this makes it impact on users privacy. Below we can look at default chromium webview user-agent strings:\\
+ 
+         "Mozilla/5.0 (Linux; Android 9; SM-A505FN Build/PPR1.180610.011; wv)                     AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0  Chrome/99.0.4844.88              Mobile Safari/537.36 "         \\
+         \par
+
+User-agent leaks users phone model and build number of the device. This bug was mentioned in article in 2015\cite{nightwatch} and in chromium forum\cite{forum}. In 2015 chrome browser was also leaking phonel model and build number. In 2018 chrome browser removed the build number from user agent strings'\cite{nightwatch1}. But still, the phone model was in the user agent strings. Now chrome browser user-agent strings looks like this:\\
+
+                "{Mozilla/5.0 (Linux; Android 9; SM-A505FN) AppleWebKit/537.36 (KHTML,                like Gecko) Chrome/98.0.4758.87 Mobile Safari/537.36}" \\
+\par
+ Since Chrome from version 93 google chrome's privacy sandbox project started providing reduced user agent strings to limit the leakage of sensitive information and protect from passive fingerprinting. We can manually enable it in Chrome by: "{chrome://flags/#reduce-user-agent}"
+After enabling this plugin user-agents will be default in all android devices:\\
+
+       "{Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like  Gecko) Chrome/93.0.0.0 Mobile Safari/537.36}" \\
+       
+The correct browser and platform information website can get with the User agent hints\cite{useragentred}.
+Our motivation to start this analysis is to check what kind of information is send with user agent field in hybrid browsers. As it can be set by a developer and contain sensitive information which can uniquely identify a user. 
+
+Case study 1. How am I unique?\par
+Hybrid applications allow developers to create browsers within applications and customize them to their needs. One such customization is the user agent strings. Some applications reveal detailed information about the device. Webviews leak sensitive information by default, as described in the previous subcsection . However, some applications add detailed information about the device, making it vulnerable to passive fingerprinting. One of the most popular apps is Instagram. It has a built-in browser. The built-in browser is invoked when you click on a link inside the Instagram app. The user agent of the built-in Instagram browser is shown below:\par
+
+           {"Mozilla/5.0 (Linux; Android 9; SM-A505FN Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0  Chrome/99.0.4844.88 Mobile Safari/537.36 Instagram 229.0.0.17.118  Android (28/9; 420dpi; 1080x2131;           samsung; SM-A505FN; a50; exynos9610;en\_DE; 360889116)"}
+\\
+The user-agent string of Instagram does not conform to the RFC standard. I quote from RFC7231 in section 5.5.3\cite{rfc}:
+
+    {" A user agent SHOULD NOT generate a User-Agent field  containing needlessly fine-grained detail and SHOULD limit the addition of  subproducts by third parties.  Overly long and detailed User-Agent  field values increase request latency and the risk of a user being identified against their wishes ("fingerprinting"). "}
+
+Below we have detailed the information presented on the Instagram's user-agent:\\
+1. Phone model leakage: (samsung; SM-A505FN; a50;).\\
+Webviews leaks the phone model by default as we mentioned in previous subsection. However, in addition, Instagram adds its own information about the device. Even if the Webviews privacy bugs in Chromium are fixed, Instagram will still leak phone model information.\\
+2.  Phone Build number leakage: (Build/PPR1.180610.011;)\\
+It is the default Webview security vulnerability we covered in the previous subsection.\\
+3. Android version :(Android 9;28/9;) \\
+The Android version is already in the default user agent string in Webview. However, Instagram added the SDK version and the android version.\\
+4. DPI and resolution (420dpi; 1080x2131;)\\
+This information can be used to determine screen size. But it is unlikely that browsers will need this information nowadays.
+5. Instagram version and variant (Instagram 229.0.0.17.118;360889116)\\
+6. Processor name (exynos9610;)\\
+This is interesting information to have the processor name in the user agent.\\
+7. Localization information. \\
+The localization information in the user agent is redundant. Because this information can be obtained by the server using HTTP\_ACCEPT\_Header.
+We checked how unique our user agent string is. We used the dataset from A Project of the Electronic Frontier Foundation\cite{tracks}. Table 1 shows the uniqueness of the user agent strings in the dataset. You can compare the uniqueness of Instagram user agent strings with standard mobile browsers.
+When we compared the dataset size was x=214144.
+
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm} |}
+ \hline
+ \multicolumn{4}{|c|}{User-agent uniqeness} \\
+ \hline
+Application & User-agent& Bits of identifying information& One in x browsers have this value\\
+ \hline
+Mozilla & Mozilla/5.0 (Android 9; Mobile; rv:98.0) Gecko/98.0 Firefox/98.0& 9.88 & 942.93\\
+ \hline
+Chrome & Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.0.0 Mobile Safari/537.36 & 7.97 & 250.63\\
+ \hline
+Instagram & Mozilla/5.0 (Linux; Android 9; SM-A505FN Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0  Chrome/99.0.4844.88 Mobile Safari/537.36 Instagram 229.0.0.17.118  Android (28/9; 420dpi; 1080x2131;           samsung; SM-A505FN; a50; exynos9610;en\_DE; 360889116) &17.91 & 214144.0\\
+\hline
+\end{tabular}\\
+  Table 1 
+ \\
+From the table we can see using fine-grained information increases user uniqueness, which leads to the privacy leakage.
+
+Case study 2. Phone model 
+By default all webviews leaks phone model. Security advisors several times pointed out that developers need's to override user agent strings to hide phone model and build number\cite{forum}\cite{nightwatch}\cite{nightwatch1}. But from our research we have found none of applications hide them. We have tested about 20000 applications from androzoo and 15000[~] are hybrid apps. 
+One example is Alibaba website. Alibaba has hybrid application.The privacy vulnerability of website is after login to the account  , account number attached to the cookies. As it stays same always,if user uses Alibaba hybrid applications or other in-app browsers to Login the site, server will now about user changed phone.It has several privacy issus:
+1. How frequently you change your phone?
+2. How is your financial status?(As in some countries mobile phones shows your financial status).
+But if user will use privacy oriented browsers example Mozilla,Tor or Chrome with enabled user-agent reduction this privacy issues will not happen. 
+
+Case study 3. Build number 
+Build number on mobile is security Vulnerability. There are several researches has done that with the help of build number the phone can be exploited\cite{nightwatch02}.
+
+case study 4. Unique Id in user agent.
+In our dataset some hybrid applications uses unique id in their user agents. Which is not  RFC7230 standart:\\
+
+"A sender SHOULD limit generated product identifiers to what is
+   necessary to identify the product; a sender MUST NOT generate
+   advertising or other nonessential information within the product
+   identifier.  A sender SHOULD NOT generate information in
+   product-version that is not a version identifier (i.e., successive versions of the same product name ought to differ only in the product-version portion of the product identifier)." \\
+   
+   
+An example of this net.giosis.shopping.id package:
+\\
+\Centering
+ "Mozilla/5.0 (Linux; Android 11; Android SDK built for x86 Build/RSR1.210210.001.A1; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.106 Mobile Safari/537.36 AndroidGmarket Qoo10 ID\_3.6.2\_133(GMKTV2\_ZlRnG1XAIzgwoC3OBe0hNjV4Pfmya
+ C5RAIBqY+mkcipUGsSIiB19AyfIHQY1msEafG/xGz9RIS4=;
+ Android SDK built for x86;11;en\_US;2000010476)"
+Unique id is added for tracking purposess. We have tested that unique id is connected device itself so after reinstalling this UID stays same. 
+
+
+
 
