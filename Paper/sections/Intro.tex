@@ -1,2 +1,17 @@
 \section{Introduction}
 
+
+      Developing applications in a hybrid format allows businesses to increase production time and reduce costs. Developing 
+native apps takes more time and costs. Currently, mobile apps work in a hybrid format that allows them to run native apps in combination with web technologies such as HTML, JavaScript and CSS. They do this by embedding web content into web views or chrome tabs\cite{webview}. Native app development is shrinking and hybrid apps are on the market.\cite{LuDroid-Journal}. Hybrid apps combine native and web technologies, so vulnerabilities to malicious activity arise on both sides\cite{LuDroid-Journal}. 
+Hybrid applications use in-app browsers or webviews, so they are also vulnerable to browser fingerprinting.
+Browser fingerprinting is a group of techniques that gathers all possible device properties to uniquely identify the user without cookies and user notice. Fingerprinting originates from hardware, network, or software configurations of the user's device.The term Browser fingerprinting was introduced by Eckersley\cite{eckersley2010unique} in 2010. He was able to get unique fingerprints. Browsers can be uniquely identified by a combination of several features:
+Collection of system information: Operating system, screen size and resolution, time zone, system fonts, system language, date and time.
+Collection of Browser information: browser version and vendor, user agent string, installed plugins, HTTP headers, cookies information, HTML canvas.
+Collection of network information: IP address, geographic location, TCP/IP parameters. 
+Moreover, Flash information can be used. 
+
+With the help of browser fingerprinting, companies can track user behavior on the web\cite{nikiforakis2013cookieless}  and can be used for user profiling. 
+Unique user identification created privacy issues, which are also relevant nowadays. 
+The growing number of APIs accessed using JavaScript has made browser fingerprinting accurate in identifying users. Several studies have involved browser fingerprinting on desktops\cite{laperdrix2020browser} and mobile phones\cite{gomez2017fingerprinting}\cite{kurtz2016fingerprinting}\cite{oliver2018fingerprinting}. To our knowledge, we could not find studies related to browser fingerprinting in hybrid applications.
+Hybrid applications use chromium webview, which is customizable and inherits vulnerabilities that the chrome browser has. Also, hybrid applications can be uniquely identified by providing uniqueID via JavaScriptInterFaces. However, in our research, we did not cover this part. 
+Our study is limited to passive browser fingerprinting in hybrid apps. They can be unique in configurations. We found several applications uniquely configured their browsers which identify users. 
