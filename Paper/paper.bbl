@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 \providecommand{\doi}[1]{https://doi.org/#1}
@@ -33,15 +33,57 @@ Research: Chrome for android reveals phone model and build.
 User-agent reduction.
   \url{https://developer.chrome.com/docs/privacy-sandbox/user-agent/} (2021)
 
+\bibitem{webview}
+Webview. \url{https://developer.android.com/reference/android/webkit/WebView/}
+  (2021)
+
+\bibitem{frida}
+Dynamic instrumentation toolkit for developers, reverse-engineers, and security
+  researchers. \url{https://frida.re/docs/android/} (2022)
+
 \bibitem{allix2016androzoo}
 Allix, K., Bissyand{\'e}, T.F., Klein, J., Le~Traon, Y.: Androzoo: Collecting
   millions of android apps for the research community. In: 2016 IEEE/ACM 13th
   Working Conference on Mining Software Repositories (MSR). pp. 468--471. IEEE
   (2016)
 
+\bibitem{eckersley2010unique}
+Eckersley, P.: How unique is your web browser? In: International Symposium on
+  Privacy Enhancing Technologies Symposium. pp. 1--18. Springer (2010)
+
+\bibitem{gomez2017fingerprinting}
+G{\'o}mez-Boix, A., Laperdrix, P., Baudry, B.: Fingerprinting mobile devices: A
+  short analysis. In: CIEL 2017-6{\`e}me Conf{\'e}rence en Ing{\'e}nieriE du
+  Logiciel (2017)
+
+\bibitem{kurtz2016fingerprinting}
+Kurtz, A., Gascon, H., Becker, T., Rieck, K., Freiling, F.C.: Fingerprinting
+  mobile devices using personalized configurations. Proc. Priv. Enhancing
+  Technol.  \textbf{2016}(1),  4--19 (2016)
+
+\bibitem{laperdrix2020browser}
+Laperdrix, P., Bielova, N., Baudry, B., Avoine, G.: Browser fingerprinting: A
+  survey. ACM Transactions on the Web (TWEB)  \textbf{14}(2),  1--33 (2020)
+
+\bibitem{nikiforakis2013cookieless}
+Nikiforakis, N., Kapravelos, A., Joosen, W., Kruegel, C., Piessens, F., Vigna,
+  G.: Cookieless monster: Exploring the ecosystem of web-based device
+  fingerprinting. In: 2013 IEEE Symposium on Security and Privacy. pp.
+  541--555. IEEE (2013)
+
+\bibitem{oliver2018fingerprinting}
+Oliver, J.: Fingerprinting the Mobile Web. Ph.D. thesis, Master Thesis. London,
+  UK: Imperial College London (2018)
+
 \bibitem{rizzo2018babelview}
 Rizzo, C., Cavallaro, L., Kinder, J.: Babelview: Evaluating the impact of code
   injection attacks in mobile webviews. In: International Symposium on Research
   in Attacks, Intrusions, and Defenses. pp. 25--46. Springer (2018)
+
+\bibitem{LuDroid-Journal}
+Tiwari, A., Prakash, J., Gro{\ss}, S., Hammer, C.: A large scale analysis of
+  android --- web hybridization. Journal of Systems and Software  \textbf{170},
+   110775 (2020). \doi{https://doi.org/10.1016/j.jss.2020.110775},
+  \url{https://www.sciencedirect.com/science/article/pii/S0164121220301898}
 
 \end{thebibliography}
