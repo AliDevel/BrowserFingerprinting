@@ -3,10 +3,13 @@ import os
 import csv
 url={}
 useragent={}
-httpl={"3"}
+packages={"1"}
 with open('user_agents.csv', newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
+         if len(row["header"])>0:
+          print(row["header"])
+         packages.add(row["packageName"])
          if row["packageName"] not in url:
           if "http://" in row["url"]:
            url[row["packageName"]]=[]
@@ -19,8 +22,7 @@ with open('user_agents.csv', newline='') as csvfile:
          else:
            useragent[row["user agent"]].append(row["packageName"])       
       
-         if "http://" in row["url"]:
-           httpl.add(row["url"])
+  
        
         
         file = open('url.csv', 'a')
@@ -30,11 +32,28 @@ with open('user_agents.csv', newline='') as csvfile:
         for key, value in url.items():
             data=[key,value]
             writer.writerow(data)
+            
         file = open('useragents1.csv', 'a')
         writer = csv.writer(file)  
-        header = ["useragents","package","size"]
-        writer.writerow(header)   
+        header = ["useragents","package","size", "useragentlength"]
+        writer.writerow(header)
+        sums=0
+                
         for key, value in useragent.items():
             useragents=list(dict.fromkeys(value))
-            data=[key, useragents, len(useragents)]
+            sums=sums+len(useragents)
+            if len(key)<180 or len(key)>222:
+             print(key)
+            data=[key, useragents, len(useragents), len(key)]
             writer.writerow(data)        
+        print(sums)
+
+        file = open('packages.csv', 'a')
+        writer = csv.writer(file)  
+        header = ["packageName"] 
+        writer.writerow(header) 
+        packages=list(packages)
+        for item in packages:
+         data=[item]
+         writer.writerow(data)    
+         
