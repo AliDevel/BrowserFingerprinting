@@ -32,8 +32,9 @@ with open('user_agents.csv', newline='') as csvfile:
             writer.writerow(data)
         file = open('useragents1.csv', 'a')
         writer = csv.writer(file)  
-        header = ["useragents","package"]
+        header = ["useragents","package","size"]
         writer.writerow(header)   
         for key, value in useragent.items():
-            data=[key,"|",value]
+            useragents=list(dict.fromkeys(value))
+            data=[key, useragents, len(useragents)]
             writer.writerow(data)        
