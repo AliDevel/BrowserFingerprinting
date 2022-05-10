@@ -1,6 +1,6 @@
 \subsection{Data collection.}
 We chose A Project of the Electronic Frontier Foundation as our experimental setup. Their project aims to investigate browsers for fingerprinting. They use the fingerprintJS library to perform various fingerprinting tests. During our testing, they had a dataset consisting of 217,923 browser fingerprints. They obtain and combine different browser configurations for fingerprinting. These include. 
-    User agent, HTTP\_ACCEPT headers, browser plugin details, time zone offset, time zone, screen size and color depth, system fonts, are cookies enabled? limited supercookie test, canvas fingerprint hash, WebGL fingerprint hash, WebGL Vendor \texttt{\&amp;} Renderer, DNT Header Enabled?
+    User agent, HTTP\_ACCEPT headers, browser plugin details, time zone offset, time zone, screen size and color depth, system fonts, are cookies enabled? limited supercookie test, canvas fingerprint hash, WebGL fingerprint hash, WebGL Vendor &amp; Renderer, DNT Header Enabled?
 Language, platform, touch support, AdBlocker used, AudioContext fingerprint, processor class, hardware parallelism, device memory (GB).
 This dataset we used to get to know the difference in fingerprinting between mobile browsers and hybrid applications. We compared mobile browsers chrome, firefox, webview, and Instagram in app with these data sets. Oliver has done previous research cite comparing mobile and desktop browsers. In this study, however, we focus on the leakage of private information by fingerprinting. 
 Some Hybrid applications user agents we cannot check with the eff.org project so we used our own intrumentation to check their user agents.
@@ -57,9 +57,9 @@ This is interesting information to have the processor name in the user agent.\\
 7. Localization information. \\
 The localization information in the user agent is redundant. Because this information can be obtained by the server using HTTP\_ACCEPT\_Header.
 We checked how unique our user agent string is. We used the dataset from A Project of the Electronic Frontier Foundation\cite{tracks}. Table 1 shows the uniqueness of the user agent strings in the dataset. You can compare the uniqueness of Instagram user agent strings with standard mobile browsers.
-When we compared the dataset size was x=214144.
+When we compared the dataset size was x=217923.
 
-\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm} |}
+\begin{tabular}{ |p{3cm}||p{5cm}|p{3cm}|p{3cm} |}
  \hline
  \multicolumn{4}{|c|}{User-agent uniqeness} \\
  \hline
@@ -69,59 +69,58 @@ Mozilla & Mozilla/5.0 (Android 9; Mobile; rv:98.0) Gecko/98.0 Firefox/98.0& 9.88
  \hline
 Chrome & Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.0.0 Mobile Safari/537.36 & 7.97 & 250.63\\
  \hline
-Instagram & Mozilla/5.0 (Linux; Android 9; SM-A505FN Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0  Chrome/99.0.4844.88 Mobile Safari/537.36 Instagram 229.0.0.17.118  Android (28/9; 420dpi; 1080x2131;           samsung; SM-A505FN; a50; exynos9610;en\_DE; 360889116) &17.91 & 214144.0\\
+Instagram & Mozilla/5.0 (Linux; Android 9; SM-A505FN Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0  Chrome/99.0.4844.88 Mobile Safari/537.36 Instagram 229.0.0.17.118  Android (28/9; 420dpi; 1080x2131;           samsung; SM-A505FN; a50; exynos9610;en\_DE; 360889116) &17.91 & 217923.0\\
 \hline
 \end{tabular}\\
   Table 1 
  \\
 From the table we can see using fine-grained information increases user uniqueness, which leads to the privacy leakage.
-By default all webviews leaks phone model. Security advisors several times pointed out that developers need's to override user agent strings to hide phone model and build number\cite{forum}\cite{nightwatch}\cite{nightwatch1}. But from our research we have found none of applications hide them. We have tested about 20000 applications from androzoo and 7345[~] are hybrid apps. 
-One example is the Alibaba website. Alibaba has a hybrid app. A website privacy vulnerability is that the account number is attached to cookies after logging into an account.(But most of applications adds account id to the cookie I checked with instagram and also with several unpopular apps) As it stays the same always, if the user uses Alibaba hybrid applications or other in-app browsers to log in to the site, the server will know that the user changed phone. It has privacy issues:\\
+By default all webviews leaks phone model. Security advisors several times pointed out that developers need's to override user agent strings to hide phone model and build number\cite{forum}\cite{nightwatch}\cite{nightwatch1}. But from our research we have found 23 of applications ovveride user agent strings. We have tested about 20000 applications from androzoo and 5145 are hybrid apps. 
+
+
+In the webviews they can know about particular user changed the device. One example is the Alibaba website. Alibaba has a hybrid app. A website privacy vulnerability is that the account number is attached to cookies after logging into an account.(But most of applications adds account id to the cookie I checked with instagram and also with several unpopular apps) As it stays the same always, if the user uses Alibaba hybrid applications or other in-app browsers to log in to the site, the server will know that the user changed phone. It has privacy issues:\\
 1. How frequently do you change your phone?
 2. What is your financial situation? (As in some countries, mobile phones show your financial situation).
+Mitigation:\\
 But if user will use privacy oriented browsers example Brave,Tor,Mozilla or Chrome with enabled user-agent reduction this privacy issue will not happen. 
 Build number on mobile is security Vulnerability. There are several researches has done that with the help of build number the phone can be exploited\cite{nightwatch02}.If attacker knows the build number of phone he can exploit the phone. 
+\\
 
-2. HTTP\_ACCEPT Language.
+2. HTTP\_ACCEPT Language header.\par
 First of all lets start with what is ACCEPT-language. 
 Shortly describing accept language header is expected to be added in all http requests. It indicates the natural language and locale that the client prefers. Server accepts this header then uses content negotiation to select one of the proposals and informs to the client with the content-language response header. 
- If there is no content matching language server sends back error code 406 (Not acceptable). But in most such cases Accept language header is ignored. 
-Examples of ACCEP-Language:
-Accept-Language: de
-Accept-Language: fr-CH, fr;q=0.9, en;q=0.8, de;q=0.7, *;q=0.5
-Accept-Language: *
+ If there is no content matching language server sends back error code 406 (Not acceptable). But in most such cases Accept language header is ignored. \\
+Examples of ACCEPT-Language:\\
+Accept-Language: de\\
+Accept-Language: fr-CH, fr;q=0.9, en;q=0.8, de;q=0.7, *;q=0.5\\
+Accept-Language: *\\
 
-
+\\
 The first example requests just for German content. In the second example more specific   tags  are used with priority list. It requests Swiss regional variant of French language, if it doesn't have then french else  english then german. 
 
 From our best of knowledge we checked chrome, mozilla and hybrid apps whether what do they include in accept language header. 
 We find all installed languages on phone appeared on Accept language header. 
-Example:
-
+Example:\\
+en-DE,en;q=0.9,ru-RU;q=0.8,ru;q=0.7,tk-TM;q=0.6,tk;q=0.5,de-DE;q=0.4,de;q=0.3,en-US;q=0.2\\
 But according to the page Accept-Language I am quoting it: 
  'Browsers set required values for this header according to their active user interface language. Users rarely change it, and such changes are not recommended because they may lead to fingerprinting.'
 
-This means if users installs more languages to his phone, he can be uniquely identified in some cases. 
+This means if users installs more languages to their phone, he can be uniquely identified in some cases. 
 However it can be mitigated by going to settings and configure browser languages. 
 But it is not the case with hybrid applications which uses webview.  Users don't have control on it. 
 In some cases there is several privacy concerns:
 1. Vulnerability of being uniquely identified.
 2. Vulnerability of being identified your origin, ethnicity or nation.
-For above cases we can use these example:
-Sending en  ru  de tk
-combination of This lanugages gives uniquesess of the user because not much people knows Turkmen language.  Uniqueness from coveryourtracks:
+For above cases we can give this example:
+en-DE,en;q=0.9,ru-RU;q=0.8,ru;q=0.7,tk-TM;q=0.6,tk;q=0.5,de-DE;q=0.4,de;q=0.3,en-US;q=0.2\\
+Combination of these lanugages gives uniquesess of the user who is in the international environment because not much people knows Turkmen language.
 
 The second vulnerabilty which can arise is identification of users origin, ethnicity or nation. In this case we can see the combination of russian and turkmen languages. As it may show the user origin from Turkmenistan.(Do we need to add this?) 
-
- 
- 
-
-
 
 
 case study 2.  Uniquely identify app users — by using phone number/unique user account 
 
-In our dataset ]number of apps] hybrid applications uses unique id in their user agents. Which is not  RFC7230 standart:\\
+In our dataset 7 hybrid applications uses unique id in their user agents. Which is not  RFC7230 standart:\\
 
 "A sender SHOULD limit generated product identifiers to what is
    necessary to identify the product; a sender MUST NOT generate
@@ -138,15 +137,15 @@ An example of this net.giosis.shopping.id package:
  Android SDK built for x86;11;en\_US;2000010476)"
  \\
  
-A unique identifier is added for identify device uniquely. We have verified that the unique identifier is the connected device itself, so this UID remains unchanged after reinstallation.
+A unique identifier is added for identify device uniquely. We have verified that the unique identifier is the connected with the device itself, so this UID remains unchanged after reinstallation.
 This type of unique identifier can be attached as a user request header, which is an example in the Alibaba hybrid app. Users are unaware of this tracking mechanism and have no control over it. 
 
 Case study. Phone model leakage in social hybrid apps.
 For our example, we chose the Instagram application. In this example, we created a simple web page storing the Instagram accountId, accountSpecificLink, and user-agent of the user.
  We created a specific url for each Instagram account and sent them to a user. After the user clicked on the account, we could tell which user was using which phone. \\
- \begin{tabular}{ |p{3cm}|p{5cm}|p{5cm}|p{5cm} |}
+ \begin{tabular}{ |p{5cm}|p{5cm}|p{5cm}|p{5cm} |}
  \hline
- \multicolumn{4}{|c|}{Accounts and phones} \\
+ \multicolumn{3}{|c|}{Accounts and phones} \\
  \hline
 Account & AccountSpecificlink & User-agent\\
  \hline
@@ -160,9 +159,9 @@ Max2134 & testprivacy.com/1234  & Mozilla/5.0 (Linux; Android 9; SM-A505FN Build
 \end{tabular}
  
  Case study 4 — Javascript modifying android objects
- 
+ For this example, From javaScriptinterface web can get access to native API. And creating javascript interfaces for setting and getting users sensitive information which can be used for uniquely fingerprint a user. 
  
  Case study 5 — Unencrypted traffic
- In our dataset we have applications which sends uses unencrypted traffic to send user information. Private user information considered IP address and users google ads ID. As we this application sends private information. MITM easily can see and fingerprint the user information. 
+ In our dataset from 5145 applications 1646 sends unencrypted traffic. Most of applications sends users private information  IP address, google ads ID, mac address. As we this application sends private information MITM attacker easily can intercept users private information.  
 
  
