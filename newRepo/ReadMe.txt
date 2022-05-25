@@ -1,20 +1,20 @@
-Prerequesitions for running automatic testing tool for Hybrid applications:
-1.Applications needs to be downloaded. 
- We downloaded our applicatons from Androzoo dataset[https://androzoo.uni.lu/].
-2.Frida server needs to installed in a device. 
- Please refer to official site of the frida to install into device[https://frida.re/docs/android/]
-3.Change applications folder localation in Automatedtesting.py.
-  Variable $path contains, location information of apps which needs to be tested. After testing applications they 
-  are moved to $path1. 
+Prerequisites for running the Automatic Hybrid Application Test Tool:
+1.You need to download the apps. 
+ We downloaded our apps from the Androzoo dataset[https://androzoo.uni.lu/].
+2.Frida server must be installed on the device. 
+ Please refer to the official frida website to install on your device[https://frida.re/docs/android/].
+3.Change the localization of the applications folder in Automatedtesting.py.
+  The $path variable contains information about the location of the applications to be tested. After testing applications, they are 
+  are moved to the folder $path1. 
 
-After completing prerequesitions, dynamic instrumentation ready to go. 
+Once the prerequisites are met, the dynamic toolkit is ready to run. 
+
 $ py automatedtesting.py 
 
 
-It produces user_agents.csv file which contains package names, Urls, custom headers and user agent strings.
+It creates a user_agents.csv file that contains package names, urls, user headers, and user agent strings.
 
-The script DatasetAnalyzer.py analyzes obtained dataset, by grouping them to Unencrypted traffic , user agent strings 
-by their similarity, and  from how many unique packages we obtained the data.
+The DatasetAnalyzer.py script analyzes the resulting dataset, grouping it for unencrypted traffic, user agent strings 
+by their similarity, as well as by the number of unique packets from which we obtained the data.
 
-
-     
+$ py DatasetAnalyzer.py
