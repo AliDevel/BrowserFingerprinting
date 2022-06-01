@@ -23,17 +23,18 @@ if (Java.available) {
 
         WebView.loadUrl.overload('java.lang.String', 'java.util.Map').implementation = function(url, header) {
             this.loadUrl(url, header);
-            var keyset = p1.keySet();
+            var keyset = url.keySet();
             var it = keyset.iterator();
             while (it.hasNext()) {
                 var keystr = it.next().toString();
-                var valuestr = p1.get(keystr).toString();
+                var valuestr = url.get(keystr).toString();
+				var s=keystr+valuestr;
                 console.log("Header" + keystr + ":" + valuestr)
             }
             send({
                 method: "loadUrlHeader",
                 Url: url,
-                Header: header,
+                Header:s,
                 userAgent: this.getSettings().getUserAgentString()
             });
         }
